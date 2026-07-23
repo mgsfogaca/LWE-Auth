@@ -1,17 +1,17 @@
-# LWE-Auth (Authenticated Learning With Errors)
+LWE-Auth (Authenticated Learning with Errors)
 
-Uma implementação em C de um criptossistema pós-quântico baseado no problema *Learning With Errors (LWE)*. Este projeto integra a matemática de reticulados com autenticação via HMAC-SHA256 e extração direta de entropia do kernel, focando em segurança contra ataques de canal lateral e forja de ciphertext.
+A C-implementation of a post-quantum cryptosystem based on the *Learning With Errors (LWE) * problem. This project integrates lattice mathematics with HMAC-SHA256 authentication and direct kernel entropy extraction, focusing on security against lateral channel and ciphertext forging attacks.
 
-## Arquitetura de Segurança
+## Security Architecture
 
-* **Resistência Quântica (LWE):** O núcleo da criptografia baseia-se na injeção de ruído em reticulados multidimensionais, tornando inviável a quebra por algoritmos quânticos como o de Shor.
-* **Side-Channel Resistance (Tempo Constante):** O código foi escrito eliminando ramificações dependentes de segredo e operadores de módulo aritmético explícitos, prevenindo *Timing Attacks*.
-* **Defesa IND-CCA2:** O ciphertext possui uma camada de integridade assinada via HMAC-SHA256, utilizando chaves derivadas. Modificações em trânsito resultam na rejeição da descriptografia em tempo constante.
-* **Entropia de Kernel:** Substituição de PRNGs inseguros por extração de entropia randômica do SO (`getrandom`), mitigando predição de estado inicial.
+* **Quantum Resistance (LWE):** The core of encryption is based on noise injection into multidimensional lattices, making breaking by quantum algorithms such as Shor's unfeasible.
+* **Side-Channel Resistance:** The code was written eliminating secret-dependent branches and explicit arithmetic module operators, preventing *Timing Attacks*.
+* **IND-CCA2 defense:** Ciphertext has an integrity layer signed via HMAC-SHA256, using derived keys. Changes in transit result in the rejection of decryption in constant time.
+* **Kernel Entropy:** Replacement of insecure PRNGs by extraction of random entropy from the OS ('getrandom'), mitigating initial state prediction.
 
-## Requisitos e Compilação
+## Requirements and Compilation
 
-Requer o compilador GCC e a biblioteca OpenSSL (`libssl-dev` / `openssl`).
+Requires the GCC compiler and the OpenSSL library ('libssl-dev' / 'openssl').
 
-```bash
-make
+"'bash
+make 
