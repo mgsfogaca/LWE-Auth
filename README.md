@@ -1,4 +1,4 @@
-LWE-Auth (Authenticated Learning with Errors)
+# LWE-Auth (Authenticated Learning With Errors)
 
 A C-implementation of a post-quantum cryptosystem based on the *Learning With Errors (LWE) * problem. This project integrates lattice mathematics with HMAC-SHA256 authentication and direct kernel entropy extraction, focusing on security against lateral channel and ciphertext forging attacks.
 
@@ -13,5 +13,5 @@ A C-implementation of a post-quantum cryptosystem based on the *Learning With Er
 
 Requires the GCC compiler and the OpenSSL library ('libssl-dev' / 'openssl').
 
-"'bash
+```bash
 make 
